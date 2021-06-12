@@ -24,6 +24,7 @@ fi
 # Maven implementation of build. Sets version, passes build options and distribution management properties.
 # Uses [PIPELINE_VERSION], [PASSED_PIPELINE_VERSION] and [M2_SETTINGS...], [REPO_WITH_BINARIES...] related env vars
 function build() {
+	chmod +x ./mvnw
 	local pipelineVersion="${PASSED_PIPELINE_VERSION:-${PIPELINE_VERSION:-}}"
 	# Required by settings.xml
 	BUILD_OPTIONS="${BUILD_OPTIONS} -DM2_SETTINGS_REPO_ID=${M2_SETTINGS_REPO_ID} -DM2_SETTINGS_REPO_USERNAME=${M2_SETTINGS_REPO_USERNAME} -DM2_SETTINGS_REPO_PASSWORD=${M2_SETTINGS_REPO_PASSWORD}"
