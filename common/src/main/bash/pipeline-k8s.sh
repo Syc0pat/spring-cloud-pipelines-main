@@ -30,6 +30,12 @@ function logInToPaas() {
 	local api="PAAS_${ENVIRONMENT}_API_URL"
 	local apiUrl="${!api:-192.168.49.2:8443}"
 	local kubeUrl="https://${apiUrl}"
+
+	## edited ##
+	local k8sClusterName="${!clusterName:-minikube}"
+	local k8sClusterUser="${!clusterUser:-minikube}"
+	############
+
 	echo "Path to kubectl [${KUBECTL_BIN}]"
 	if [[ "${TEST_MODE}" == "false" && "${KUBECTL_BIN}" != "/"* ]]; then
 		echo "Downloading CLI"
