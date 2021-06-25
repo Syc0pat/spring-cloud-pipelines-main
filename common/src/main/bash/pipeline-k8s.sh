@@ -28,7 +28,7 @@ function logInToPaas() {
 	local systemName="PAAS_${ENVIRONMENT}_SYSTEM_NAME"
 	local k8sSystemName="${!systemName}"
 	local api="PAAS_${ENVIRONMENT}_API_URL"
-	local apiUrl="${!api:-192.168.99.100:8443}"
+	local apiUrl="${!api:-192.168.49.2:8443}"
 	local kubeUrl="https://${apiUrl}"
 	echo "Path to kubectl [${KUBECTL_BIN}]"
 	if [[ "${TEST_MODE}" == "false" && "${KUBECTL_BIN}" != "/"* ]]; then
